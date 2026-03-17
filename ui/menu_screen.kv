@@ -1,0 +1,124 @@
+<SettingsPopup>:
+    title: "Settings"
+    size_hint: 0.86, 0.44
+    auto_dismiss: True
+    separator_height: 0
+    BoxLayout:
+        orientation: "vertical"
+        spacing: dp(16)
+        padding: dp(20)
+        canvas.before:
+            Color:
+                rgba: 0.09, 0.13, 0.16, 0.98
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [dp(18)]
+        Label:
+            text: "Audio"
+            color: 0.95, 0.96, 0.98, 1
+            font_size: "20sp"
+            bold: True
+            size_hint_y: None
+            height: dp(32)
+        BoxLayout:
+            size_hint_y: None
+            height: dp(48)
+            Label:
+                text: "Sound Effects"
+                color: 0.95, 0.96, 0.98, 1
+                halign: "left"
+                text_size: self.size
+            Switch:
+                active: root.sound_enabled
+                on_active: root.set_sound_enabled(self.active)
+        Button:
+            text: "Reset High Score"
+            size_hint_y: None
+            height: dp(52)
+            background_normal: ""
+            background_color: 0.94, 0.45, 0.22, 1
+            on_release: root.reset_high_score()
+        Button:
+            text: "Close"
+            size_hint_y: None
+            height: dp(52)
+            background_normal: ""
+            background_color: 0.17, 0.72, 0.53, 1
+            on_release: root.dismiss()
+
+<MenuScreen>:
+    canvas.before:
+        Color:
+            rgba: 0.05, 0.08, 0.10, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation: "vertical"
+        padding: dp(24)
+        spacing: dp(18)
+        Widget:
+            size_hint_y: 0.16
+        Label:
+            text: "Snake Game"
+            font_size: "42sp"
+            bold: True
+            color: 0.97, 0.98, 1, 1
+            size_hint_y: None
+            height: dp(64)
+        Label:
+            text: "Arcade Edition"
+            font_size: "18sp"
+            color: 0.70, 0.81, 0.76, 1
+            size_hint_y: None
+            height: dp(28)
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: dp(88)
+            padding: dp(16)
+            canvas.before:
+                Color:
+                    rgba: 0.09, 0.13, 0.16, 0.92
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [dp(20)]
+            Label:
+                text: "High Score"
+                color: 0.69, 0.78, 0.74, 1
+                font_size: "16sp"
+            Label:
+                text: root.high_score_text
+                color: 0.97, 0.98, 1, 1
+                font_size: "28sp"
+                bold: True
+        Widget:
+            size_hint_y: 0.06
+        Button:
+            text: "Start Game"
+            size_hint_y: None
+            height: dp(58)
+            background_normal: ""
+            background_color: 0.17, 0.72, 0.53, 1
+            color: 1, 1, 1, 1
+            on_release: root.start_game()
+        Button:
+            text: "Settings"
+            size_hint_y: None
+            height: dp(58)
+            background_normal: ""
+            background_color: 0.15, 0.34, 0.39, 1
+            color: 1, 1, 1, 1
+            on_release: root.open_settings()
+        Button:
+            text: "Exit"
+            size_hint_y: None
+            height: dp(58)
+            background_normal: ""
+            background_color: 0.94, 0.45, 0.22, 1
+            color: 1, 1, 1, 1
+            on_release: root.exit_app()
+        Widget:
+            size_hint_y: 0.3

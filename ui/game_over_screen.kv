@@ -1,0 +1,66 @@
+<GameOverScreen>:
+    canvas.before:
+        Color:
+            rgba: 0.05, 0.08, 0.10, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation: "vertical"
+        padding: dp(24)
+        spacing: dp(18)
+        Widget:
+            size_hint_y: 0.18
+        Label:
+            text: "Game Over"
+            font_size: "42sp"
+            bold: True
+            color: 0.97, 0.98, 1, 1
+            size_hint_y: None
+            height: dp(64)
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: dp(154)
+            padding: dp(16)
+            spacing: dp(10)
+            canvas.before:
+                Color:
+                    rgba: 0.09, 0.13, 0.16, 0.94
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [dp(20)]
+            Label:
+                text: "Final Score: " + root.final_score_text
+                color: 0.97, 0.98, 1, 1
+                font_size: "24sp"
+                bold: True
+            Label:
+                text: "High Score: " + root.high_score_text
+                color: 0.70, 0.81, 0.76, 1
+                font_size: "18sp"
+            Label:
+                text: "Time: " + root.time_text
+                color: 0.70, 0.81, 0.76, 1
+                font_size: "18sp"
+        Widget:
+            size_hint_y: 0.04
+        Button:
+            text: "Restart"
+            size_hint_y: None
+            height: dp(58)
+            background_normal: ""
+            background_color: 0.17, 0.72, 0.53, 1
+            color: 1, 1, 1, 1
+            on_release: root.restart_game()
+        Button:
+            text: "Back To Menu"
+            size_hint_y: None
+            height: dp(58)
+            background_normal: ""
+            background_color: 0.15, 0.34, 0.39, 1
+            color: 1, 1, 1, 1
+            on_release: root.back_to_menu()
+        Widget:
+            size_hint_y: 0.32
